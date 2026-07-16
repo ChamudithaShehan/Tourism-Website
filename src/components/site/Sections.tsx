@@ -84,7 +84,7 @@ export function Hero() {
           </div>
 
           {/* Floating destination preview */}
-          <div className="lg:col-span-4 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="hidden lg:block lg:col-span-4 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <div className="glass-dark rounded-[28px] p-4 shadow-luxe max-w-sm ml-auto">
               <p className="eyebrow text-white/60 px-2">Now trending</p>
               <div className="mt-3 flex items-start gap-3">
