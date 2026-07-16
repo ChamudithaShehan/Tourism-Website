@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { PageHero, FeaturedDestinations, WorldMap, Newsletter } from "@/components/site/Sections";
+import { PageHero, FeaturedDestinations, Newsletter } from "@/components/site/Sections";
+
 const hero = "https://loremflickr.com/1920/1280/srilanka,beach/all";
 
 export const Route = createFileRoute("/destinations")({
@@ -21,7 +22,6 @@ export const Route = createFileRoute("/destinations")({
         image={hero}
       />
       <FeaturedDestinations />
-      <WorldMap />
       <Newsletter />
     </SiteLayout>
   ),

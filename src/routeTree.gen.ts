@@ -18,6 +18,7 @@ import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PackagesPackageIdRouteImport } from './routes/packages.$packageId'
 
 const StoriesRoute = StoriesRouteImport.update({
   id: '/stories',
@@ -64,6 +65,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PackagesPackageIdRoute = PackagesPackageIdRouteImport.update({
+  id: '/$packageId',
+  path: '/$packageId',
+  getParentRoute: () => PackagesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -72,9 +78,10 @@ export interface FileRoutesByFullPath {
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
-  '/packages': typeof PackagesRoute
+  '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stories': typeof StoriesRoute
+  '/packages/$packageId': typeof PackagesPackageIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -83,9 +90,10 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
-  '/packages': typeof PackagesRoute
+  '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stories': typeof StoriesRoute
+  '/packages/$packageId': typeof PackagesPackageIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -95,9 +103,10 @@ export interface FileRoutesById {
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
-  '/packages': typeof PackagesRoute
+  '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stories': typeof StoriesRoute
+  '/packages/$packageId': typeof PackagesPackageIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +120,7 @@ export interface FileRouteTypes {
     | '/packages'
     | '/sitemap.xml'
     | '/stories'
+    | '/packages/$packageId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/packages'
     | '/sitemap.xml'
     | '/stories'
+    | '/packages/$packageId'
   id:
     | '__root__'
     | '/'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/packages'
     | '/sitemap.xml'
     | '/stories'
+    | '/packages/$packageId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -142,7 +154,7 @@ export interface RootRouteChildren {
   DestinationsRoute: typeof DestinationsRoute
   ExperiencesRoute: typeof ExperiencesRoute
   GalleryRoute: typeof GalleryRoute
-  PackagesRoute: typeof PackagesRoute
+  PackagesRoute: typeof PackagesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StoriesRoute: typeof StoriesRoute
 }
@@ -212,8 +224,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/packages/$packageId': {
+      id: '/packages/$packageId'
+      path: '/$packageId'
+      fullPath: '/packages/$packageId'
+      preLoaderRoute: typeof PackagesPackageIdRouteImport
+      parentRoute: typeof PackagesRoute
+    }
   }
 }
+
+interface PackagesRouteChildren {
+  PackagesPackageIdRoute: typeof PackagesPackageIdRoute
+}
+
+const PackagesRouteChildren: PackagesRouteChildren = {
+  PackagesPackageIdRoute: PackagesPackageIdRoute,
+}
+
+const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
+  PackagesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -222,7 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   DestinationsRoute: DestinationsRoute,
   ExperiencesRoute: ExperiencesRoute,
   GalleryRoute: GalleryRoute,
-  PackagesRoute: PackagesRoute,
+  PackagesRoute: PackagesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StoriesRoute: StoriesRoute,
 }

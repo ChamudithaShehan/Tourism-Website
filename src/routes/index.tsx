@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import {
-  Hero, FeaturedDestinations, WorldMap, ExperienceCategories,
+  Hero, FeaturedDestinations, ExperienceCategories,
   PremiumPackages, WhyChooseUs, Gallery, TravelStories,
   Testimonials, Newsletter, AboutSection, ContactSection,
 } from "@/components/site/Sections";
@@ -15,7 +15,6 @@ function Index() {
     <SiteLayout>
       <Hero />
       <FeaturedDestinations />
-      <WorldMap />
       <ExperienceCategories />
       <PremiumPackages />
       <WhyChooseUs />
