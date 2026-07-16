@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, ExperienceCategories, Gallery, Newsletter } from "@/components/site/Sections";
-import hero from "@/assets/dest-kyoto.jpg";
+const hero = "https://lp-cms-production.imgix.net/2019-06/GettyImages-497592261_high.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4";
 
 export const Route = createFileRoute("/experiences")({
   head: () => ({

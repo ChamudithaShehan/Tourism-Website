@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, Gallery, Newsletter } from "@/components/site/Sections";
-import hero from "@/assets/gallery-3.jpg";
+const hero = "https://img.freepik.com/premium-photo/nuwara-eliya-tea-plantation-sri-lanka-nuwara-eliya-is-most-important-place-tea-plantation-production-sri-lanka_78361-9432.jpg?w=2000";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({

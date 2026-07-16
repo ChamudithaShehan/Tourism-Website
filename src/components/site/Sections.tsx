@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
+import { useState, useEffect, useCallback } from "react";
 import {
   ArrowRight, ArrowUpRight, Star, MapPin, Play, ChevronDown,
   Mountain, Waves, Tent, TreePine, Bird, Car, Landmark, TreePalm, Footprints,
   Sparkles, Users, Globe, ShieldCheck, HeartHandshake, Award,
   Quote, Mail, Phone, MapPinned, Instagram, Twitter, Facebook,
-  Plus,
+  Plus, X, Maximize2, ChevronLeft, ChevronRight,
 } from "lucide-react";
 
 import hero from "@/assets/hero-maldives.jpg";
@@ -87,25 +88,25 @@ export function Hero() {
             <div className="glass-dark rounded-[28px] p-4 shadow-luxe max-w-sm ml-auto">
               <p className="eyebrow text-white/60 px-2">Now trending</p>
               <div className="mt-3 flex items-start gap-3">
-                <img src={santorini} alt="" className="h-20 w-20 rounded-2xl object-cover" width={160} height={160} loading="lazy" />
+                <img src="https://themanduls.com/wp-content/uploads/2025/07/Nine-Arch-Bridge-Ella-Sri-Lanka-35-1.jpg" alt="Ella" className="h-20 w-20 rounded-2xl object-cover" width={160} height={160} loading="lazy" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-display text-lg">Santorini, Greece</p>
-                  <p className="text-xs text-white/60 mt-1 flex items-center gap-1"><MapPin className="h-3 w-3" />Cyclades Islands</p>
+                  <p className="font-display text-lg">Ella, Sri Lanka</p>
+                  <p className="text-xs text-white/60 mt-1 flex items-center gap-1"><MapPin className="h-3 w-3" />Hill Country</p>
                   <div className="mt-2 flex items-center gap-1 text-xs">
                     <Star className="h-3 w-3 fill-[color:var(--gold)] text-[color:var(--gold)]" />
-                    4.9 · 1,204 travelers
+                    4.9 · 2,104 travelers
                   </div>
                 </div>
               </div>
               <div className="mt-4 h-px bg-white/10" />
               <div className="mt-3 flex items-start gap-3">
-                <img src={iceland} alt="" className="h-20 w-20 rounded-2xl object-cover" width={160} height={160} loading="lazy" />
+                <img src="https://theportuguesetraveler.com/wp-content/uploads/2024/11/galle-fort-city-sri-lanka-drone-5.jpg.webp" alt="Galle" className="h-20 w-20 rounded-2xl object-cover" width={160} height={160} loading="lazy" />
                 <div className="flex-1 min-w-0">
-                  <p className="font-display text-lg">Reykjavík, Iceland</p>
-                  <p className="text-xs text-white/60 mt-1 flex items-center gap-1"><MapPin className="h-3 w-3" />Under the aurora</p>
+                  <p className="font-display text-lg">Galle, Sri Lanka</p>
+                  <p className="text-xs text-white/60 mt-1 flex items-center gap-1"><MapPin className="h-3 w-3" />Southern Coast</p>
                   <div className="mt-2 flex items-center gap-1 text-xs">
                     <Star className="h-3 w-3 fill-[color:var(--gold)] text-[color:var(--gold)]" />
-                    4.8 · 892 travelers
+                    4.8 · 1,892 travelers
                   </div>
                 </div>
               </div>
@@ -142,12 +143,12 @@ export function Hero() {
 
 /* ────────────────────────────────────────────────────────── DESTINATIONS (magazine) */
 const destinations = [
-  { img: santorini, country: "Greece", city: "Santorini", cat: "Island", rating: 4.9, blurb: "Cliffside villages, caldera sunsets, and salt-air mornings." },
-  { img: kyoto,     country: "Sri Lanka",  city: "Kandy",     cat: "Culture", rating: 4.8, blurb: "Bamboo groves, tea houses, and quiet garden temples." },
-  { img: safari,    country: "Kenya",  city: "Maasai Mara", cat: "Safari", rating: 4.9, blurb: "Private tented camps beneath acacia and endless sky." },
-  { img: iceland,   country: "Sri Lanka", city: "Ella", cat: "Nature", rating: 4.8, blurb: "Aurora nights above glacier lagoons and black beaches." },
-  { img: swiss,     country: "Switzerland", city: "Zermatt", cat: "Alpine", rating: 4.7, blurb: "Chalet stays, cog-railway ascents, and Matterhorn views." },
-  { img: bali,      country: "Indonesia", city: "Ubud",     cat: "Retreat", rating: 4.9, blurb: "Terraced rice fields, jungle spas, and slow mornings." },
+  { img: "https://imgix.theurbanlist.com/content/article/best-hotels-srilanka-1.jpg", country: "Sri Lanka", city: "Weligama", cat: "Luxury", rating: 4.9, blurb: "Cliffside resorts, endless ocean views, and tropical luxury at its finest." },
+  { img: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471485-Kandy-Sri-Lanka.jpg", country: "Sri Lanka", city: "Kandy", cat: "Culture", rating: 4.8, blurb: "Sacred temples, misty hills, and the heartbeat of Sri Lankan heritage." },
+  { img: safari,    country: "Sri Lanka", city: "Yala", cat: "Safari", rating: 4.9, blurb: "Leopards at dusk, wild elephants, and luxury tented camps in the wild." },
+  { img: "https://lp-cms-production.imgix.net/2019-06/GettyImages-497592261_high.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4", country: "Sri Lanka", city: "Ella", cat: "Nature", rating: 4.8, blurb: "Misty mountain passes, Nine Arch Bridge, and lush tea-covered hills." },
+  { img: "https://cdn.audleytravel.com/-/-/79/1025644-galle-sri-lanka.jpg", country: "Sri Lanka", city: "Galle", cat: "Heritage", rating: 4.7, blurb: "Dutch colonial ramparts, boutique hotels, and the Indian Ocean at every turn." },
+  { img: "https://img.freepik.com/premium-photo/nuwara-eliya-tea-plantation-sri-lanka-nuwara-eliya-is-most-important-place-tea-plantation-production-sri-lanka_78361-9432.jpg?w=2000", country: "Sri Lanka", city: "Nuwara Eliya", cat: "Retreat", rating: 4.9, blurb: "Misty tea plantations, colonial bungalows, and the cool highland air." },
 ];
 
 export function FeaturedDestinations() {
@@ -234,16 +235,16 @@ function DestCard({ d, className = "" }: { d: (typeof destinations)[number]; cla
 
 /* ────────────────────────────────────────────────────────── EXPERIENCE CATEGORIES */
 const experiences = [
-  { icon: Mountain,   label: "Adventure",   img: g3 },
-  { icon: Sparkles,   label: "Luxury",      img: santorini },
-  { icon: Waves,      label: "Beach",       img: g1 },
-  { icon: TreePine,   label: "Nature",      img: swiss },
-  { icon: Bird,       label: "Wildlife",    img: safari },
-  { icon: Tent,       label: "Camping",     img: g2 },
-  { icon: Car,        label: "Road Trips",  img: iceland },
-  { icon: Landmark,   label: "Culture",     img: kyoto },
-  { icon: TreePalm,   label: "Island Tours",img: bali },
-  { icon: Footprints, label: "Hiking",      img: g5 },
+  { icon: Mountain,   label: "Adventure",   img: "https://media.istockphoto.com/id/1195550182/photo/lions-rock-at-sigiriya-seen-from-pidurangala-rock-sri-lanka.jpg?s=170667a&w=0&k=20&c=1PlfQIo_uck8nQqVwSM86pni8Qe11M-0rG-PmTG9aFU=" },
+  { icon: Sparkles,   label: "Luxury",      img: "https://theportuguesetraveler.com/wp-content/uploads/2024/09/ahu-bay-hotel-best-hotels-sri-lanka-13.jpg.webp" },
+  { icon: Waves,      label: "Beach",       img: "https://s29745.pcdn.co/wp-content/uploads/2019/04/Hikkaduwa-Beach-Sri-Lanka-.jpeg" },
+  { icon: TreePine,   label: "Nature",      img: "https://lp-cms-production.imgix.net/2019-06/GettyImages-497592261_high.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4" },
+  { icon: Bird,       label: "Wildlife",    img: "https://www.srilankalocaltours.com/wp-content/uploads/safari-trip-to-Yala-National-Park-1.jpg" },
+  { icon: Tent,       label: "Camping",     img: "https://overatours.com/wp-content/uploads/2020/02/Camping-2-scaled.jpg" },
+  { icon: Car,        label: "Road Trips",  img: "https://static.cozycozy.com/images/catalog/bg2/horizontal-sri-lanka.jpg" },
+  { icon: Landmark,   label: "Culture",     img: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471485-Kandy-Sri-Lanka.jpg" },
+  { icon: TreePalm,   label: "Island Tours",img: "https://images.locationscout.net/2018/06/polonnaruwa-ruins-sri-lanka-ws3e.jpg?h=1100&q=83" },
+  { icon: Footprints, label: "Hiking",      img: "https://media.istockphoto.com/id/2183695496/photo/man-and-woman-bonding-while-hiking-in-sri-lanka.jpg?s=612x612&w=0&k=20&c=6TkET72w3FkbbQiY9uYXwy5en_2X6egabQDLysmR428=" },
 ];
 
 export function ExperienceCategories() {
@@ -413,7 +414,7 @@ export function WhyChooseUs() {
           <div className="lg:col-span-8 grid gap-4 sm:grid-cols-2">
             {reasons.map(({ icon: Icon, title, body }, i) => (
               <div key={title}
-                className={`group relative rounded-3xl border border-border bg-white p-8 hover-lift ${i % 3 === 0 ? "sm:translate-y-6" : ""}`}
+                className="group relative rounded-3xl border border-border bg-white p-8 hover-lift"
               >
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[color:var(--ocean)]/8 text-[color:var(--ocean)] transition group-hover:bg-[color:var(--ocean)] group-hover:text-white">
                   <Icon className="h-5 w-5" />
@@ -431,21 +432,127 @@ export function WhyChooseUs() {
 
 /* ────────────────────────────────────────────────────────── GALLERY (masonry) */
 const galleryImgs = [
-  { src: "https://loremflickr.com/800/1200/srilanka,yacht/all", alt: "Luxury catamaran in Mirissa bay", h: "h-[420px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,lighthouse/all", alt: "Galle Fort lighthouse at sunset", h: "h-[560px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,tent/all", alt: "Luxury camp under stars in Yala", h: "h-[320px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,temple/all", alt: "Temple of the Tooth Relic during festival", h: "h-[560px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,sigiriya/all", alt: "Sigiriya Rock at sunrise", h: "h-[500px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,tea/all", alt: "Kandy tea estates at dawn", h: "h-[400px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,colombo/all", alt: "Colombo Lotus Tower from balcony", h: "h-[420px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,bungalow/all", alt: "Nuwara Eliya colonial bungalow in mist", h: "h-[500px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,ella/all", alt: "Morning mist over Ella gap", h: "h-[380px]" },
-  { src: "https://loremflickr.com/800/1200/srilanka,ocean/all", alt: "Trincomalee natural harbor aerial", h: "h-[520px]" },
+  { src: "https://img.freepik.com/premium-photo/nuwara-eliya-tea-plantation-sri-lanka-nuwara-eliya-is-most-important-place-tea-plantation-production-sri-lanka_78361-9432.jpg?w=2000", alt: "Nuwara Eliya tea plantations, Sri Lanka", h: "h-[500px]" },
+  { src: "https://cdn.audleytravel.com/-/-/79/1025644-galle-sri-lanka.jpg", alt: "Galle Fort colonial streets, Sri Lanka", h: "h-[420px]" },
+  { src: "https://lp-cms-production.imgix.net/2019-06/GettyImages-497592261_high.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4", alt: "Ella Rock valley view, Sri Lanka", h: "h-[560px]" },
+  { src: "https://www.traveltalktours.com/wp-content/uploads/2022/07/ritigala-1024x683.jpg", alt: "Ancient Ritigala ruins, Sri Lanka", h: "h-[380px]" },
+  { src: "https://www.thenomadicvegan.com/wp-content/uploads/2018/12/Staircase-in-Yapahuwa-Sri-Lanka-615x922.jpg", alt: "Yapahuwa rock fortress staircase, Sri Lanka", h: "h-[540px]" },
+  { src: "https://www.srilankalocaltours.com/wp-content/uploads/safari-trip-to-Yala-National-Park-1.jpg", alt: "Safari wildlife at Yala National Park, Sri Lanka", h: "h-[400px]" },
+  { src: "https://tse1.mm.bing.net/th/id/OIP.lQ61EgbBiwGX7bkhX4hkOQHaJQ?r=0&w=800&h=1000&rs=1&pid=ImgDetMain&o=7&rm=3", alt: "Sigiriya Rock Fortress, Sri Lanka", h: "h-[480px]" },
+  { src: "https://media.istockphoto.com/id/2183695496/photo/man-and-woman-bonding-while-hiking-in-sri-lanka.jpg?s=612x612&w=0&k=20&c=6TkET72w3FkbbQiY9uYXwy5en_2X6egabQDLysmR428=", alt: "Couple hiking through Sri Lanka highlands", h: "h-[440px]" },
+  { src: "https://static.cozycozy.com/images/catalog/bg2/horizontal-sri-lanka.jpg", alt: "Scenic Sri Lanka coastal panorama", h: "h-[360px]" },
+  { src: "https://s29745.pcdn.co/wp-content/uploads/2019/04/Hikkaduwa-Beach-Sri-Lanka-.jpeg", alt: "Hikkaduwa Beach, Sri Lanka", h: "h-[460px]" },
+  { src: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471485-Kandy-Sri-Lanka.jpg", alt: "Kandy city and lake view, Sri Lanka", h: "h-[520px]" },
+  { src: "https://media.istockphoto.com/id/1195550182/photo/lions-rock-at-sigiriya-seen-from-pidurangala-rock-sri-lanka.jpg?s=170667a&w=0&k=20&c=1PlfQIo_uck8nQqVwSM86pni8Qe11M-0rG-PmTG9aFU=", alt: "Sigiriya Lion Rock from Pidurangala, Sri Lanka", h: "h-[500px]" },
+  { src: "https://images.locationscout.net/2018/06/polonnaruwa-ruins-sri-lanka-ws3e.jpg?h=1100&q=83", alt: "Ancient Polonnaruwa ruins, Sri Lanka", h: "h-[420px]" },
 ];
 
+/* Lightbox Modal */
+function GalleryLightbox({
+  images,
+  index,
+  onClose,
+  onPrev,
+  onNext,
+}: {
+  images: typeof galleryImgs;
+  index: number;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") onPrev();
+      if (e.key === "ArrowRight") onNext();
+    };
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose, onPrev, onNext]);
+
+  const img = images[index];
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.92)", backdropFilter: "blur(10px)" }}
+      onClick={onClose}
+    >
+      {/* Close */}
+      <button
+        onClick={onClose}
+        aria-label="Close lightbox"
+        className="absolute top-5 right-5 z-10 grid h-11 w-11 place-items-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
+      >
+        <X className="h-6 w-6" />
+      </button>
+
+      {/* Prev */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onPrev(); }}
+        aria-label="Previous image"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 grid h-12 w-12 place-items-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
+      >
+        <ChevronLeft className="h-7 w-7" />
+      </button>
+
+      {/* Next */}
+      <button
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        aria-label="Next image"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 grid h-12 w-12 place-items-center rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
+      >
+        <ChevronRight className="h-7 w-7" />
+      </button>
+
+      {/* Image */}
+      <div
+        className="relative max-h-[90vh] max-w-[90vw] flex flex-col items-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <img
+          src={img.src}
+          alt={img.alt}
+          className="max-h-[82vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
+          style={{ animation: "fade-up 0.3s cubic-bezier(0.22,1,0.36,1) both" }}
+        />
+        <p className="mt-4 text-center text-xs uppercase tracking-widest text-white/60">
+          {img.alt} &nbsp;·&nbsp; {index + 1} / {images.length}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function Gallery() {
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
+
+  const openAt = useCallback((i: number) => setLightboxIdx(i), []);
+  const close   = useCallback(() => setLightboxIdx(null), []);
+  const prev    = useCallback(() =>
+    setLightboxIdx((i) => (i === null ? null : (i - 1 + galleryImgs.length) % galleryImgs.length)),
+  []);
+  const next    = useCallback(() =>
+    setLightboxIdx((i) => (i === null ? null : (i + 1) % galleryImgs.length)),
+  []);
+
   return (
     <section className="relative py-24 sm:py-32">
+      {lightboxIdx !== null && (
+        <GalleryLightbox
+          images={galleryImgs}
+          index={lightboxIdx}
+          onClose={close}
+          onPrev={prev}
+          onNext={next}
+        />
+      )}
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="eyebrow">Field notes</p>
@@ -459,9 +566,28 @@ export function Gallery() {
           {galleryImgs.map((g, i) => (
             <figure
               key={i}
-              className={`group mb-4 break-inside-avoid overflow-hidden rounded-3xl relative ${g.h}`}
+              className={`group mb-4 break-inside-avoid overflow-hidden rounded-3xl relative cursor-pointer ${g.h}`}
+              onClick={() => openAt(i)}
             >
-              <img src={g.src} alt={g.alt} className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-110" loading="lazy" />
+              <img
+                src={g.src}
+                alt={g.alt}
+                className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-110"
+                loading="lazy"
+              />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
+              {/* View Full button */}
+              <button
+                aria-label={`View full: ${g.alt}`}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 rounded-full glass px-4 py-2 text-[11px] font-medium uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 shadow-lg"
+                style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)" }}
+                onClick={(e) => { e.stopPropagation(); openAt(i); }}
+              >
+                <Maximize2 className="h-3 w-3" />
+                View full
+              </button>
+              {/* Caption */}
               <figcaption className="absolute inset-x-3 bottom-3 rounded-2xl glass-dark px-4 py-2 text-[11px] uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition">
                 {g.alt}
               </figcaption>
@@ -514,8 +640,8 @@ export function TravelStories() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             {[
               { tag: "Field notes", title: "The last light on a Maldivian sandbank", read: "6 min", img: hero },
-              { tag: "Interview",   title: "Talking with a Kyoto tea master, at dawn",  read: "9 min", img: kyoto },
-              { tag: "Guide",       title: "How to spend a week in the Icelandic ring",  read: "11 min", img: iceland },
+              { tag: "Interview",   title: "Inside Sri Lanka's most beautiful boutique retreat",  read: "9 min", img: "https://theportuguesetraveler.com/wp-content/uploads/2024/09/ahu-bay-hotel-best-hotels-sri-lanka-13.jpg.webp" },
+              { tag: "Guide",       title: "The finest hotels to stay in Colombo right now",  read: "11 min", img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/9d/51/dd/cinnamon-grand-main-entrance.jpg?w=1200&h=-1&s=1" },
             ].map((s) => (
               <a key={s.title} href="#" className="group flex items-start gap-5 rounded-3xl border border-border bg-white p-4 hover-lift">
                 <img src={s.img} alt="" className="h-24 w-32 rounded-2xl object-cover shrink-0" loading="lazy" />
@@ -534,55 +660,79 @@ export function TravelStories() {
 }
 
 /* ────────────────────────────────────────────────────────── TESTIMONIALS */
-const testimonials = [
-  { name: "Sarah Jenkins", country: "Sydney, Australia", quote: "Every detail felt considered — from the airport handover to the private guide who met us at dawn. The trip felt entirely ours.", rating: 5 },
-  { name: "James Whitmore", country: "Sydney, Australia",   quote: "Ceylon Escapes understood the trip we wanted before we did. Ten days in the Hill Country that read like a novel we didn't want to end.", rating: 5 },
-  { name: "Amara Okafor",   country: "Dubai, UAE", quote: "Yala National Park in a small tented camp with a family of guides who felt like old friends. Utterly unforgettable.", rating: 5 },
+const allTestimonials = [
+  { name: "Sarah Jenkins", country: "Sydney, AU", quote: "Every detail felt considered. The private guide who met us at dawn made the trip feel entirely ours." },
+  { name: "James Whitmore", country: "London, UK", quote: "They understood the trip we wanted before we did. Ten days in the Hill Country that read like a novel." },
+  { name: "Amara Okafor",   country: "Dubai, UAE", quote: "Yala in a small tented camp with guides who felt like old friends. Utterly unforgettable." },
+  { name: "Oliver Chen",    country: "Singapore", quote: "A seamless journey. The boutique hotels they selected were hidden gems we'd never have found alone." },
+  { name: "Emma Dubois",    country: "Paris, FR", quote: "Waking up to the misty tea plantations was surreal. Their local knowledge made our itinerary truly bespoke." },
+  { name: "David Kim",      country: "New York, USA", quote: "Professional, attentive, and deeply passionate about their country. The best travel designers I've worked with." },
 ];
+
+const baseRow1 = allTestimonials.slice(0, 3);
+const baseRow2 = allTestimonials.slice(3, 6);
+const marqueeRow1 = [...baseRow1, ...baseRow1, ...baseRow1, ...baseRow1];
+const marqueeRow2 = [...baseRow2, ...baseRow2, ...baseRow2, ...baseRow2];
 
 export function Testimonials() {
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden bg-[oklch(0.16_0.03_250)] text-white">
       <div
         aria-hidden
-        className="absolute -bottom-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full blur-3xl opacity-30"
+        className="absolute -bottom-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full blur-3xl opacity-30 pointer-events-none"
         style={{ background: "var(--gradient-luxe)" }}
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mb-16 text-center mx-auto">
           <p className="eyebrow text-white/50">Kind words</p>
           <h2 className="fluid-h2 mt-4 font-display text-balance">Told by the travelers themselves</h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <figure
-              key={t.name}
-              className={`group relative rounded-[28px] p-8 glass-dark hover:bg-white/10 transition ${i === 1 ? "md:translate-y-8" : ""}`}
-            >
-              <Quote className="h-8 w-8 text-[color:var(--gold)] opacity-80" />
-              <blockquote className="mt-6 text-white/85 leading-relaxed text-pretty">
-                "{t.quote}"
-              </blockquote>
-              <div className="mt-8 flex items-center gap-4">
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-[color:var(--gold)] to-[color:var(--emerald-brand)] text-[color:var(--ink)] font-display text-lg">
-                  {t.name.split(" ").map(s => s[0]).join("")}
-                </div>
-                <div>
-                  <p className="font-display text-lg">{t.name}</p>
-                  <p className="text-xs text-white/60">{t.country}</p>
-                </div>
-                <div className="ml-auto flex gap-0.5">
-                  {Array.from({ length: t.rating }).map((_, k) => (
-                    <Star key={k} className="h-3.5 w-3.5 fill-[color:var(--gold)] text-[color:var(--gold)]" />
-                  ))}
-                </div>
-              </div>
-            </figure>
-          ))}
+        {/* Marquee Container with edge fade mask */}
+        <div 
+          className="relative flex flex-col gap-6 overflow-hidden" 
+          style={{ maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)" }}
+        >
+          {/* Top Row (Scrolls Left) */}
+          <div className="flex w-max animate-marquee items-center gap-6 hover:[animation-play-state:paused]">
+            {marqueeRow1.map((t, i) => (
+              <TestimonialCard key={`r1-${i}`} {...t} />
+            ))}
+          </div>
+
+          {/* Bottom Row (Scrolls Right) */}
+          <div className="flex w-max animate-marquee items-center gap-6 [animation-direction:reverse] hover:[animation-play-state:paused]">
+            {marqueeRow2.map((t, i) => (
+              <TestimonialCard key={`r2-${i}`} {...t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function TestimonialCard({ name, country, quote }: { name: string, country: string, quote: string }) {
+  return (
+    <div className="w-[340px] shrink-0 rounded-3xl border border-white/10 glass-dark p-6 shadow-sm transition hover:bg-white/10">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/10 text-white font-display text-sm">
+          {name.split(" ").map(s => s[0]).join("")}
+        </div>
+        <div>
+          <p className="font-display text-sm font-medium text-white">{name}</p>
+          <p className="text-[11px] text-white/60 uppercase tracking-wider mt-0.5">{country}</p>
+        </div>
+        <div className="ml-auto flex gap-0.5">
+          {Array.from({ length: 5 }).map((_, k) => (
+            <Star key={k} className="h-3.5 w-3.5 fill-[color:var(--gold)] text-[color:var(--gold)]" />
+          ))}
+        </div>
+      </div>
+      <p className="text-sm text-white/80 leading-relaxed text-pretty">
+        "{quote}"
+      </p>
+    </div>
   );
 }
 
@@ -603,21 +753,23 @@ export function Newsletter() {
               </p>
             </div>
             <form onSubmit={(e) => e.preventDefault()} className="w-full">
-              <div className="glass rounded-full p-2 pl-6 flex items-center gap-3">
-                <Mail className="h-4 w-4 text-white/70 shrink-0" />
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  className="flex-1 min-w-0 bg-transparent text-sm outline-none placeholder:text-white/60 text-white"
-                />
-                <button className="inline-flex h-12 items-center gap-2 rounded-full bg-white pl-5 pr-2 text-sm font-medium text-[color:var(--ink)] transition hover:bg-[color:var(--gold)] shrink-0">
+              <div className="glass rounded-3xl sm:rounded-full p-2 sm:pl-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
+                <div className="flex flex-1 items-center gap-3 px-4 py-3 sm:p-0">
+                  <Mail className="h-4 w-4 text-white/70 shrink-0" />
+                  <input
+                    type="email"
+                    placeholder="Your email address"
+                    className="flex-1 min-w-0 bg-transparent text-sm outline-none placeholder:text-white/60 text-white"
+                  />
+                </div>
+                <button className="inline-flex h-12 w-full sm:w-auto items-center justify-between sm:justify-start gap-2 rounded-full bg-white pl-5 pr-2 text-sm font-medium text-[color:var(--ink)] transition hover:bg-[color:var(--gold)] shrink-0">
                   Subscribe
                   <span className="grid h-8 w-8 place-items-center rounded-full bg-[color:var(--ink)] text-white">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </button>
               </div>
-              <p className="mt-3 text-xs text-white/50 px-2">No noise. Unsubscribe with one tap.</p>
+              <p className="mt-3 text-xs text-white/50 px-2 text-center sm:text-left">No noise. Unsubscribe with one tap.</p>
             </form>
           </div>
         </div>

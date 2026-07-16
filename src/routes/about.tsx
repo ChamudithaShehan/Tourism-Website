@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, AboutSection, WhyChooseUs, Testimonials } from "@/components/site/Sections";
-import hero from "@/assets/dest-swiss.jpg";
+const hero = "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471485-Kandy-Sri-Lanka.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

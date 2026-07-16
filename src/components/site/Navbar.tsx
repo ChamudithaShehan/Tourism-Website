@@ -60,7 +60,7 @@ export function Navbar() {
                 className={`relative px-3 py-2 text-[13px] font-medium tracking-wide transition-colors ${
                   scrolled ? "text-foreground/70 hover:text-foreground" : "text-white/80 hover:text-white"
                 }`}
-                activeProps={{ className: scrolled ? "text-foreground" : "text-white" }}
+                activeProps={{ className: scrolled ? "text-foreground font-bold underline underline-offset-4" : "text-white font-bold underline underline-offset-4" }}
               >
                 {l.label}
               </Link>

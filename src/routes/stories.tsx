@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, TravelStories, Testimonials, Newsletter } from "@/components/site/Sections";
-const hero = "https://loremflickr.com/1920/1280/srilanka,train/all";
+const hero = "https://s29745.pcdn.co/wp-content/uploads/2019/04/Hikkaduwa-Beach-Sri-Lanka-.jpeg";
 
 export const Route = createFileRoute("/stories")({
   head: () => ({

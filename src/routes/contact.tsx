@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, ContactSection, Newsletter } from "@/components/site/Sections";
-import hero from "@/assets/dest-bali.jpg";
+const hero = "https://cdn.audleytravel.com/-/-/79/1025644-galle-sri-lanka.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

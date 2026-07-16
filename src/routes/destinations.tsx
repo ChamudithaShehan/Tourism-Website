@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero, FeaturedDestinations, Newsletter } from "@/components/site/Sections";
 
-const hero = "https://loremflickr.com/1920/1280/srilanka,beach/all";
+const hero = "https://www.travelplusstyle.com/wp-content/uploads/2024/09/Amanwella1-Sri-Lanka-Main-Swimming-Pool_1369.jpg";
 
 export const Route = createFileRoute("/destinations")({
   head: () => ({

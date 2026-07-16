@@ -18,6 +18,7 @@ import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesPackageIdRouteImport } from './routes/packages.$packageId'
 
 const StoriesRoute = StoriesRouteImport.update({
@@ -65,6 +66,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PackagesIndexRoute = PackagesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PackagesRoute,
+} as any)
 const PackagesPackageIdRoute = PackagesPackageIdRouteImport.update({
   id: '/$packageId',
   path: '/$packageId',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
+  '/packages/': typeof PackagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -90,10 +97,10 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRoute
   '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
-  '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
+  '/packages': typeof PackagesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +114,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
+  '/packages/': typeof PackagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +129,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/stories'
     | '/packages/$packageId'
+    | '/packages/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -129,10 +138,10 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/experiences'
     | '/gallery'
-    | '/packages'
     | '/sitemap.xml'
     | '/stories'
     | '/packages/$packageId'
+    | '/packages'
   id:
     | '__root__'
     | '/'
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/stories'
     | '/packages/$packageId'
+    | '/packages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -224,6 +234,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/packages/': {
+      id: '/packages/'
+      path: '/'
+      fullPath: '/packages/'
+      preLoaderRoute: typeof PackagesIndexRouteImport
+      parentRoute: typeof PackagesRoute
+    }
     '/packages/$packageId': {
       id: '/packages/$packageId'
       path: '/$packageId'
@@ -236,10 +253,12 @@ declare module '@tanstack/react-router' {
 
 interface PackagesRouteChildren {
   PackagesPackageIdRoute: typeof PackagesPackageIdRoute
+  PackagesIndexRoute: typeof PackagesIndexRoute
 }
 
 const PackagesRouteChildren: PackagesRouteChildren = {
   PackagesPackageIdRoute: PackagesPackageIdRoute,
+  PackagesIndexRoute: PackagesIndexRoute,
 }
 
 const PackagesRouteWithChildren = PackagesRoute._addFileChildren(

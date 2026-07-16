@@ -38,24 +38,26 @@ export function Footer() {
             </form>
           </div>
 
-          <div className="md:col-span-2">
-            <p className="eyebrow text-white/40">Explore</p>
-            <ul className="mt-4 space-y-3 text-sm text-white/70">
-              <li><Link to="/destinations" className="hover:text-white">Destinations</Link></li>
-              <li><Link to="/packages" className="hover:text-white">Packages</Link></li>
-              <li><Link to="/experiences" className="hover:text-white">Experiences</Link></li>
-              <li><Link to="/gallery" className="hover:text-white">Gallery</Link></li>
-            </ul>
-          </div>
+          <div className="grid grid-cols-2 gap-8 md:col-span-4">
+            <div>
+              <p className="eyebrow text-white/40">Explore</p>
+              <ul className="mt-4 space-y-3 text-sm text-white/70">
+                <li><Link to="/destinations" className="hover:text-white">Destinations</Link></li>
+                <li><Link to="/packages" className="hover:text-white">Packages</Link></li>
+                <li><Link to="/experiences" className="hover:text-white">Experiences</Link></li>
+                <li><Link to="/gallery" className="hover:text-white">Gallery</Link></li>
+              </ul>
+            </div>
 
-          <div className="md:col-span-2">
-            <p className="eyebrow text-white/40">House</p>
-            <ul className="mt-4 space-y-3 text-sm text-white/70">
-              <li><Link to="/about" className="hover:text-white">About</Link></li>
-              <li><Link to="/stories" className="hover:text-white">Stories</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
-              <li><a href="#" className="hover:text-white">Travel guides</a></li>
-            </ul>
+            <div>
+              <p className="eyebrow text-white/40">House</p>
+              <ul className="mt-4 space-y-3 text-sm text-white/70">
+                <li><Link to="/about" className="hover:text-white">About</Link></li>
+                <li><Link to="/stories" className="hover:text-white">Stories</Link></li>
+                <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+                <li><a href="#" className="hover:text-white">Travel guides</a></li>
+              </ul>
+            </div>
           </div>
 
           <div className="md:col-span-3">
@@ -78,8 +80,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col-reverse gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-white/40">© {new Date().getFullYear()} Ceylon Escapes. Crafted with care in Colombo.</p>
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-white/40">&copy; {new Date().getFullYear()} Ceylon Escapes. Crafted with care in Colombo.</p>
+          <p className="text-xs text-white/40">Development by <span className="text-white/60 font-medium">Brain<span style={{ color: "var(--gold)" }}>t</span>isa</span></p>
           <div className="flex flex-wrap gap-6 text-xs text-white/50">
             <a href="#" className="hover:text-white">Privacy</a>
             <a href="#" className="hover:text-white">Terms</a>
