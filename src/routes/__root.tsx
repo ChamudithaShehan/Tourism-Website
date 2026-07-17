@@ -72,9 +72,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ceylon Escapes — Extraordinary Journeys, Curated" },
-      { name: "description", content: "Ceylon Escapes crafts cinematic, private travel experiences across the world's most extraordinary destinations — from southern beaches to misty tea trails." },
-      { property: "og:title", content: "Ceylon Escapes — Extraordinary Journeys, Curated" },
+      { title: " Castle Cab  — Extraordinary Journeys, Curated" },
+      { name: "description", content: " Castle Cab  crafts cinematic, private travel experiences across the world's most extraordinary destinations — from southern beaches to misty tea trails." },
+      { property: "og:title", content: " Castle Cab  — Extraordinary Journeys, Curated" },
       { property: "og:description", content: "Cinematic, private travel experiences across the world's most extraordinary destinations." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

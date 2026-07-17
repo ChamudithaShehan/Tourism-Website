@@ -394,7 +394,7 @@ export function WhyChooseUs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="eyebrow">Why Ceylon Escapes</p>
+            <p className="eyebrow">Why  Castle Cab </p>
             <h2 className="fluid-h2 mt-4 font-display text-balance">Small in scale.<br />Devoted in craft.</h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-pretty">
               We travel first, then we plan. Everything we offer, we've walked ourselves —
@@ -799,7 +799,7 @@ export function AboutSection() {
             <p className="eyebrow">Our story</p>
             <h2 className="fluid-h2 mt-4 font-display text-balance">Travel, told the way we'd want to hear it.</h2>
             <p className="mt-6 text-muted-foreground leading-relaxed text-pretty">
-              Ceylon Escapes began with a small notebook and a habit — writing down the places we returned to.
+               Castle Cab  began with a small notebook and a habit — writing down the places we returned to.
               Fourteen years later, that notebook is a travel atelier of designers, guides, and photographers
               scattered across four continents, still writing things down.
             </p>
@@ -847,7 +847,7 @@ export function ContactSection() {
           <div className="lg:col-span-5 flex flex-col gap-6">
             <div className="glass rounded-[28px] p-8 shadow-float">
               <p className="eyebrow">Atelier</p>
-              <p className="font-display text-2xl mt-3">Ceylon Escapes Travel Atelier</p>
+              <p className="font-display text-2xl mt-3"> Castle Cab  Travel Atelier</p>
               <p className="text-sm text-muted-foreground mt-2">
                 12 Galle Face Court<br />13100 Colombo 03, Sri Lanka
               </p>

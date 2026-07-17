@@ -1,6 +1,6 @@
-# Ceylon Escapes (formerly Voyage Lumina)
+#  Castle Cab  (formerly Voyage Lumina)
 
-Welcome to **Ceylon Escapes**, a premium travel and tourism platform dedicated exclusively to the breathtaking island of Sri Lanka. 
+Welcome to ** Castle Cab **, a premium travel and tourism platform dedicated exclusively to the breathtaking island of Sri Lanka. 
 
 This project was built to showcase high-end travel itineraries, authentic local experiences, and the unparalleled beauty of the Pearl of the Indian Ocean—from the golden surfing bays of the South Coast to the misty peaks of the Hill Country.
 

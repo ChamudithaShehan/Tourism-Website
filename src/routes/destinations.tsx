@@ -7,9 +7,9 @@ const hero = "https://www.travelplusstyle.com/wp-content/uploads/2024/09/Amanwel
 export const Route = createFileRoute("/destinations")({
   head: () => ({
     meta: [
-      { title: "Destinations — Ceylon Escapes" },
+      { title: "Destinations —  Castle Cab " },
       { name: "description", content: "150+ carefully vetted destinations across Sri Lanka, from pristine southern beaches to misty tea trails." },
-      { property: "og:title", content: "Destinations — Ceylon Escapes" },
+      { property: "og:title", content: "Destinations —  Castle Cab " },
       { property: "og:description", content: "150+ vetted destinations across the teardrop island." },
     ],
   }),

@@ -6,9 +6,9 @@ const hero = "https://www.travel-gallery.co.uk/sites/default/files/img/jungle-be
 export const Route = createFileRoute("/packages/")({
   head: () => ({
     meta: [
-      { title: "Packages — Ceylon Escapes" },
-      { name: "description", content: "Signature journeys composed by Ceylon Escapes — from southern beaches to Yala safaris and Kandy slow cities." },
-      { property: "og:title", content: "Packages — Ceylon Escapes" },
+      { title: "Packages —  Castle Cab " },
+      { name: "description", content: "Signature journeys composed by  Castle Cab  — from southern beaches to Yala safaris and Kandy slow cities." },
+      { property: "og:title", content: "Packages —  Castle Cab " },
       { property: "og:description", content: "Signature journeys composed by our travel designers." },
     ],
   }),

@@ -6,9 +6,9 @@ const hero = "https://img.freepik.com/premium-photo/nuwara-eliya-tea-plantation-
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Ceylon Escapes" },
+      { title: "Gallery —  Castle Cab " },
       { name: "description", content: "A quiet archive of frames from the road — captured by our travelers and photographers on assignment." },
-      { property: "og:title", content: "Gallery — Ceylon Escapes" },
+      { property: "og:title", content: "Gallery —  Castle Cab " },
       { property: "og:description", content: "Frames from the road, quietly archived." },
     ],
   }),

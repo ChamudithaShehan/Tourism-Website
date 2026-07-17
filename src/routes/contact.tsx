@@ -6,10 +6,10 @@ const hero = "https://cdn.audleytravel.com/-/-/79/1025644-galle-sri-lanka.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Ceylon Escapes" },
+      { title: "Contact —  Castle Cab " },
       { name: "description", content: "Tell us where you'd like to go — one of our travel designers will write back within a day." },
-      { property: "og:title", content: "Contact — Ceylon Escapes" },
-      { property: "og:description", content: "Begin your next journey with Ceylon Escapes." },
+      { property: "og:title", content: "Contact —  Castle Cab " },
+      { property: "og:description", content: "Begin your next journey with  Castle Cab ." },
     ],
   }),
   component: () => (

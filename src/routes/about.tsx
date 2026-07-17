@@ -6,9 +6,9 @@ const hero = "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Ceylon Escapes" },
-      { name: "description", content: "Ceylon Escapes is a small atelier of travel designers, guides, and photographers scattered across the island of Sri Lanka." },
-      { property: "og:title", content: "About — Ceylon Escapes" },
+      { title: "About —  Castle Cab " },
+      { name: "description", content: " Castle Cab  is a small atelier of travel designers, guides, and photographers scattered across the island of Sri Lanka." },
+      { property: "og:title", content: "About —  Castle Cab " },
       { property: "og:description", content: "A small atelier of travel designers, since 2012." },
     ],
   }),
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/about")({
       <PageHero
         eyebrow="Our story"
         title="Small in scale. Devoted in craft."
-        subtitle="Ceylon Escapes began with a notebook — and a habit of writing down the places we returned to."
+        subtitle=" Castle Cab  began with a notebook — and a habit of writing down the places we returned to."
         image={hero}
       />
       <AboutSection />

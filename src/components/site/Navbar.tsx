@@ -37,7 +37,7 @@ export function Navbar() {
           }`}
         >
           <Link to="/" className="flex items-center gap-2 group">
-            <img src={logoImage} alt="Ceylon Escapes Logo" className={`h-20 w-auto object-contain transition-all duration-500 group-hover:scale-105 -my-5 ${scrolled ? 'drop-shadow-[0_0_15px_rgba(0,0,0,0.6)]' : ''}`} />
+            <img src={logoImage} alt=" Castle Cab  Logo" className={`h-20 w-auto object-contain transition-all duration-500 group-hover:scale-105 -my-5 ${scrolled ? 'drop-shadow-[0_0_15px_rgba(0,0,0,0.6)]' : ''}`} />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">

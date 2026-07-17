@@ -15,10 +15,10 @@ export const Route = createFileRoute("/packages/$packageId")({
   head: ({ loaderData: pkg }) => ({
     meta: pkg
       ? [
-          { title: `${pkg.title} — Ceylon Escapes` },
+          { title: `${pkg.title} —  Castle Cab ` },
           { name: "description", content: pkg.blurb },
         ]
-      : [{ title: "Package — Ceylon Escapes" }],
+      : [{ title: "Package —  Castle Cab " }],
   }),
   component: PackageDetails,
 });

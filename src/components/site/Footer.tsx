@@ -14,10 +14,10 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-2">
-              <img src={logoImage} alt="Ceylon Escapes Logo" className="h-30 w-auto object-contain" />
+              <img src={logoImage} alt=" Castle Cab  Logo" className="h-30 w-auto object-contain" />
             </div>
             <p className="mt-6 max-w-md text-white/60 text-pretty leading-relaxed">
-              Extraordinary journeys, quietly curated. Ceylon Escapes designs private travel
+              Extraordinary journeys, quietly curated.  Castle Cab  designs private travel
               experiences for those who move slowly, feel deeply, and travel well.
             </p>
 
@@ -70,14 +70,14 @@ export function Footer() {
               ))}
             </div>
             <p className="mt-6 text-xs text-white/40 leading-relaxed">
-              Ceylon Escapes Travel Atelier<br />
+               Castle Cab  Travel Atelier<br />
               12 Galle Face Court, Colombo 03 · Sri Lanka
             </p>
           </div>
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-white/40">&copy; {new Date().getFullYear()} Ceylon Escapes. Crafted with care in Colombo.</p>
+          <p className="text-xs text-white/40">&copy; {new Date().getFullYear()}  Castle Cab . Crafted with care in Colombo.</p>
           <p className="text-xs text-white/40">Development by <span className="text-white/60 font-medium">Brain<span style={{ color: "var(--gold)" }}>t</span>isa</span></p>
           <div className="flex flex-wrap gap-6 text-xs text-white/50">
             <a href="#" className="hover:text-white">Privacy</a>
