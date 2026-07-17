@@ -59,7 +59,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-[13px] font-medium text-background transition hover:bg-primary"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-[13px] font-medium text-background transition hover:bg-[#f5b83d] hover:text-[#0B0B0B]"
             >
               Plan a journey
             </Link>

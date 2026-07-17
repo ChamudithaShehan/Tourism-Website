@@ -1,5 +1,4 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -32,6 +31,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
   --color-ocean: var(--ocean);
   --color-ocean-deep: var(--ocean-deep);
   --color-emerald-brand: var(--emerald-brand);
@@ -50,51 +51,53 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand palette (Premium Luxury Theme) */
-  --background: oklch(0.99 0.002 95);         /* Alabaster white */
-  --foreground: oklch(0.20 0.01 240);         /* Deep charcoal / soft black */
-  --ink: oklch(0.20 0.01 240);
-  --sand: oklch(0.96 0.005 90);
+  /* Brand palette */
+  --background: #FFFFFF;
+  --foreground: #0B0B0B;
+  --ink: #0B0B0B;
+  --sand: #F5F5F5;
 
-  --ocean: oklch(0.32 0.04 250);              /* Elegant slate/midnight blue */
-  --ocean-deep: oklch(0.22 0.03 250);
-  --emerald-brand: oklch(0.55 0.06 160);      /* Muted sage/emerald */
-  --gold: oklch(0.75 0.08 70);                /* Champagne gold */
-  --gold-soft: oklch(0.92 0.04 75);
+  --ocean: #D91F26;
+  --ocean-deep: #B71920;
+  --emerald-brand: #16A34A;
+  --gold: #F4B63C;
+  --gold-soft: #F6C869;
 
-  --card: oklch(1 0 0);
-  --card-foreground: var(--foreground);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--foreground);
+  --card: #FFFFFF;
+  --card-foreground: #0B0B0B;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B0B0B;
 
-  --primary: var(--ocean);
-  --primary-foreground: oklch(0.99 0.002 95);
-  --secondary: var(--emerald-brand);
-  --secondary-foreground: oklch(0.99 0.002 95);
-  --muted: oklch(0.95 0.005 90);
-  --muted-foreground: oklch(0.45 0.01 240);
-  --accent: var(--gold);
-  --accent-foreground: oklch(0.20 0.01 240);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.99 0.002 95);
-  --border: oklch(0.9 0.01 90);
-  --input: oklch(0.9 0.01 90);
-  --ring: var(--ocean);
+  --primary: #D91F26;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F4B63C;
+  --secondary-foreground: #0B0B0B;
+  --muted: #F5F5F5;
+  --muted-foreground: #737373;
+  --accent: #F5F5F5;
+  --accent-foreground: #0B0B0B;
+  --destructive: #D91F26;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --ring: #D91F26;
+  --success: #16A34A;
+  --success-foreground: #FFFFFF;
 
-  --gradient-ocean: linear-gradient(135deg, oklch(0.32 0.04 250), oklch(0.55 0.06 160));
-  --gradient-sunset: linear-gradient(135deg, oklch(0.75 0.08 70), oklch(0.65 0.10 40));
-  --gradient-luxe: linear-gradient(135deg, oklch(0.22 0.03 250), oklch(0.32 0.04 250) 60%, oklch(0.75 0.08 70));
-  --gradient-mist: linear-gradient(180deg, oklch(1 0 0 / 0), oklch(0.99 0.002 95 / 0.6) 60%, oklch(0.99 0.002 95));
+  --gradient-ocean: linear-gradient(135deg, #D91F26, #F4B63C);
+  --gradient-sunset: linear-gradient(135deg, #F4B63C, #D91F26);
+  --gradient-luxe: linear-gradient(135deg, #D91F26, #F4B63C 60%, #D9D9D9);
+  --gradient-mist: linear-gradient(180deg, rgba(11,11,11,0), rgba(11,11,11,0.6) 60%, #0B0B0B);
 }
 
 .dark {
-  --background: oklch(0.15 0.01 240);
-  --foreground: oklch(0.98 0.002 95);
-  --card: oklch(0.18 0.01 240);
-  --card-foreground: oklch(0.98 0.002 95);
-  --border: oklch(1 0 0 / 10%);
-  --muted: oklch(0.22 0.01 240);
-  --muted-foreground: oklch(0.70 0.01 240);
+  --background: #0B0B0B;
+  --foreground: #FFFFFF;
+  --card: #181818;
+  --card-foreground: #FFFFFF;
+  --border: #2A2A2A;
+  --muted: #181818;
+  --muted-foreground: #B5B5B5;
 }
 
 @layer base {
@@ -151,7 +154,7 @@
   letter-spacing: 0.35em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--muted-foreground);
+  color: var(--primary);
 }
 
 @keyframes fade-up {

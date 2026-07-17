@@ -5,11 +5,6 @@ import logoImage from "@/assets/logo/logo.png";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[oklch(0.14_0.03_250)] text-white">
-      <div
-        aria-hidden
-        className="absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full blur-3xl opacity-30"
-        style={{ background: "var(--gradient-luxe)" }}
-      />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -22,7 +17,7 @@ export function Footer() {
             </p>
 
             <form className="mt-8 max-w-md" onSubmit={(e) => e.preventDefault()}>
-              <label className="eyebrow text-white/50">Field notes, monthly</label>
+              <label className="eyebrow">Field notes, monthly</label>
               <div className="mt-3 flex items-center rounded-full border border-white/15 bg-white/5 backdrop-blur pl-5 pr-1 py-1">
                 <input
                   type="email"

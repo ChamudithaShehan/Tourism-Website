@@ -93,7 +93,7 @@ function PackageDetails() {
         <div className="pt-40 pb-24 text-center min-h-[60vh] flex flex-col items-center justify-center gap-4">
           <h1 className="font-display text-4xl">Package not found</h1>
           <p className="text-muted-foreground">The requested itinerary could not be found.</p>
-          <Link to="/packages" className="mt-4 inline-flex h-12 items-center gap-2 rounded-full bg-foreground text-background px-6 text-sm font-medium hover:bg-primary transition">
+          <Link to="/packages" className="mt-4 inline-flex h-12 items-center gap-2 rounded-full bg-foreground text-background px-6 text-sm font-medium hover:bg-[#f5b83d] hover:text-[#0B0B0B] transition">
             Browse all packages
           </Link>
         </div>
@@ -118,11 +118,7 @@ function PackageDetails() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
         {/* Decorative glow */}
-        <div
-          aria-hidden
-          className="absolute right-0 top-1/3 h-[600px] w-[600px] rounded-full opacity-20 blur-3xl"
-          style={{ background: "var(--gradient-sunset)" }}
-        />
+
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-16 pt-40">
           {/* Breadcrumb */}
@@ -333,7 +329,7 @@ function PackageDetails() {
                   {/* CTA */}
                   <Link
                     to="/contact"
-                    className="group flex w-full h-14 items-center justify-between rounded-full bg-foreground pl-6 pr-2 text-sm font-medium text-background hover:bg-primary transition mt-5"
+                    className="group flex w-full h-14 items-center justify-between rounded-full bg-foreground pl-6 pr-2 text-sm font-medium text-background hover:bg-[#f5b83d] hover:text-[#0B0B0B] transition mt-5"
                   >
                     Request this itinerary
                     <span className="grid h-10 w-10 place-items-center rounded-full bg-background text-foreground transition-transform group-hover:rotate-45">
@@ -385,14 +381,9 @@ function PackageDetails() {
 
       {/* ════════════════════════════════════════ BOTTOM CTA */}
       <section
-        className="relative py-24 text-white overflow-hidden"
-        style={{ background: "var(--gradient-luxe)" }}
+        className="relative py-24 text-white overflow-hidden bg-foreground"
       >
-        <div
-          aria-hidden
-          className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
-          style={{ background: "var(--gradient-sunset)" }}
-        />
+
         <div className="relative mx-auto max-w-3xl px-4 text-center">
           <p className="eyebrow text-white/60 mb-4">Ready to begin?</p>
           <h2 className="font-display text-4xl sm:text-6xl text-balance mb-6">

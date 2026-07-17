@@ -29,7 +29,7 @@ export function Hero() {
     <section className="relative isolate min-h-screen w-full overflow-hidden text-white">
       <div className="absolute inset-0 -z-10">
         <img
-          src={hero}
+          src="https://www.bluelankatours.com/wp-content/uploads/2020/01/Evening_Pool_View_at_Anantara_Peace_Haven.jpg"
           alt="Aerial view of overwater villas at sunset"
           width={1920}
           height={1280}
@@ -39,12 +39,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
-      {/* Floating decorative element */}
-      <div
-        aria-hidden
-        className="absolute -right-40 top-1/3 h-[440px] w-[440px] rounded-full opacity-30 blur-3xl animate-float"
-        style={{ background: "var(--gradient-sunset)" }}
-      />
+
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-4 sm:px-6 lg:px-8 pt-40 pb-16">
         <div className="grid lg:grid-cols-12 gap-10 items-end flex-1">
@@ -184,7 +179,7 @@ export function FeaturedDestinations() {
               <p className="text-xs uppercase tracking-widest text-white/70 flex items-center gap-1"><MapPin className="h-3 w-3" /> {destinations[0].country}</p>
               <h3 className="font-display text-4xl sm:text-5xl mt-2">{destinations[0].city}</h3>
               <p className="mt-3 max-w-md text-white/80">{destinations[0].blurb}</p>
-              <button className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-white pl-5 pr-2 text-sm text-[color:var(--ink)]">
+              <button className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-white pl-5 pr-2 text-sm text-[color:var(--ink)] transition hover:bg-[#f5b83d] hover:text-[#0B0B0B]">
                 Discover journey
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-[color:var(--ink)] text-white">
                   <ArrowRight className="h-4 w-4" />
@@ -361,7 +356,7 @@ function PackageCard({
             <p className="text-[11px] uppercase tracking-widest text-muted-foreground">From</p>
             <p className="font-display text-2xl">{p.price}</p>
           </div>
-          <Link to="/packages/$packageId" params={{ packageId: p.id }} className="group/btn inline-flex h-12 items-center gap-2 rounded-full bg-foreground pl-5 pr-2 text-sm text-background transition hover:bg-primary">
+          <Link to="/packages/$packageId" params={{ packageId: p.id }} className="group/btn inline-flex h-12 items-center gap-2 rounded-full bg-foreground pl-5 pr-2 text-sm text-background transition hover:bg-[#f5b83d] hover:text-[#0B0B0B]">
             View details
             <span className="grid h-8 w-8 place-items-center rounded-full bg-background text-foreground transition-transform group-hover/btn:rotate-45">
               <ArrowUpRight className="h-4 w-4" />
@@ -386,11 +381,7 @@ const reasons = [
 export function WhyChooseUs() {
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full blur-3xl opacity-20"
-        style={{ background: "var(--gradient-sunset)" }}
-      />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-32">
@@ -677,14 +668,10 @@ const marqueeRow2 = [...baseRow2, ...baseRow2, ...baseRow2, ...baseRow2];
 export function Testimonials() {
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden bg-[oklch(0.16_0.03_250)] text-white">
-      <div
-        aria-hidden
-        className="absolute -bottom-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full blur-3xl opacity-30 pointer-events-none"
-        style={{ background: "var(--gradient-luxe)" }}
-      />
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-16 text-center mx-auto">
-          <p className="eyebrow text-white/50">Kind words</p>
+          <p className="eyebrow">Kind words</p>
           <h2 className="fluid-h2 mt-4 font-display text-balance">Told by the travelers themselves</h2>
         </div>
 
@@ -741,12 +728,11 @@ export function Newsletter() {
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[40px] p-10 sm:p-16 text-white" style={{ background: "var(--gradient-luxe)" }}>
+        <div className="relative overflow-hidden rounded-[40px] p-10 sm:p-16 text-white bg-foreground">
           <div aria-hidden className="absolute -top-32 -left-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-          <div aria-hidden className="absolute -bottom-32 -right-20 h-72 w-72 rounded-full bg-[color:var(--gold)]/40 blur-3xl" />
           <div className="relative grid gap-10 md:grid-cols-2 items-center">
             <div>
-              <p className="eyebrow text-white/60">The Field Letter</p>
+              <p className="eyebrow text-[#D91F26]">The Field Letter</p>
               <h2 className="fluid-h2 mt-4 font-display text-balance">Postcards from the road, once a month.</h2>
               <p className="mt-4 text-white/70 text-pretty max-w-md">
                 A quiet dispatch of new destinations, seasonal itineraries, and reading from our writers on assignment.
@@ -924,7 +910,7 @@ export function ContactSection() {
 
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
               <p className="text-xs text-muted-foreground">We'll write back within one working day.</p>
-              <button className="group inline-flex h-14 items-center gap-2 rounded-full bg-foreground pl-7 pr-2 text-sm font-medium text-background transition hover:bg-primary">
+              <button className="group inline-flex h-14 items-center gap-2 rounded-full bg-foreground pl-7 pr-2 text-sm font-medium text-background transition hover:bg-[#f5b83d] hover:text-[#0B0B0B]">
                 Send message
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-background text-foreground transition-transform group-hover:rotate-45">
                   <ArrowUpRight className="h-4 w-4" />

@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesPackageIdRouteImport } from './routes/packages.$packageId'
 
+const StoriesRoute = StoriesRouteImport.update({
+  id: '/stories',
+  path: '/stories',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
   '/packages/': typeof PackagesIndexRoute
 }
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRoute
   '/gallery': typeof GalleryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
   '/packages': typeof PackagesIndexRoute
 }
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
   '/packages/': typeof PackagesIndexRoute
 }
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/packages'
     | '/sitemap.xml'
+    | '/stories'
     | '/packages/$packageId'
     | '/packages/'
   fileRoutesByTo: FileRoutesByTo
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/gallery'
     | '/sitemap.xml'
+    | '/stories'
     | '/packages/$packageId'
     | '/packages'
   id:
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/packages'
     | '/sitemap.xml'
+    | '/stories'
     | '/packages/$packageId'
     | '/packages/'
   fileRoutesById: FileRoutesById
@@ -141,10 +153,18 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StoriesRoute: typeof StoriesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/stories': {
+      id: '/stories'
+      path: '/stories'
+      fullPath: '/stories'
+      preLoaderRoute: typeof StoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   PackagesRoute: PackagesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StoriesRoute: StoriesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
