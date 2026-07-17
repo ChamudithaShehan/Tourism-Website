@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Compass, Instagram, Twitter, Facebook, Youtube, Send } from "lucide-react";
+import { Instagram, Twitter, Facebook, Youtube, Send } from "lucide-react";
+import logoImage from "@/assets/logo/logo.png";
 
 export function Footer() {
   return (
@@ -13,10 +14,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="flex items-center gap-2">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/10">
-                <Compass className="h-4 w-4" />
-              </span>
-              <span className="font-display text-2xl">Ceylon Escapes</span>
+              <img src={logoImage} alt="Ceylon Escapes Logo" className="h-30 w-auto object-contain" />
             </div>
             <p className="mt-6 max-w-md text-white/60 text-pretty leading-relaxed">
               Extraordinary journeys, quietly curated. Ceylon Escapes designs private travel
@@ -44,7 +42,6 @@ export function Footer() {
               <ul className="mt-4 space-y-3 text-sm text-white/70">
                 <li><Link to="/destinations" className="hover:text-white">Destinations</Link></li>
                 <li><Link to="/packages" className="hover:text-white">Packages</Link></li>
-                <li><Link to="/experiences" className="hover:text-white">Experiences</Link></li>
                 <li><Link to="/gallery" className="hover:text-white">Gallery</Link></li>
               </ul>
             </div>
@@ -53,7 +50,6 @@ export function Footer() {
               <p className="eyebrow text-white/40">House</p>
               <ul className="mt-4 space-y-3 text-sm text-white/70">
                 <li><Link to="/about" className="hover:text-white">About</Link></li>
-                <li><Link to="/stories" className="hover:text-white">Stories</Link></li>
                 <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
                 <li><a href="#" className="hover:text-white">Travel guides</a></li>
               </ul>

@@ -1,14 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Compass } from "lucide-react";
-
+import logoImage from "@/assets/logo/logo.png";
 const links = [
   { to: "/", label: "Home" },
   { to: "/destinations", label: "Destinations" },
   { to: "/packages", label: "Packages" },
-  { to: "/experiences", label: "Experiences" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/stories", label: "Stories" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -39,16 +37,7 @@ export function Navbar() {
           }`}
         >
           <Link to="/" className="flex items-center gap-2 group">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground transition-transform group-hover:rotate-12">
-              <Compass className="h-4 w-4" />
-            </span>
-            <span
-              className={`font-display text-xl tracking-tight transition-colors ${
-                scrolled ? "text-foreground" : "text-white drop-shadow"
-              }`}
-            >
-              Ceylon Escapes
-            </span>
+            <img src={logoImage} alt="Ceylon Escapes Logo" className={`h-20 w-auto object-contain transition-all duration-500 group-hover:scale-105 -my-5 ${scrolled ? 'drop-shadow-[0_0_15px_rgba(0,0,0,0.6)]' : ''}`} />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">

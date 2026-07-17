@@ -9,11 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as StoriesRouteImport } from './routes/stories'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as ExperiencesRouteImport } from './routes/experiences'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -21,11 +19,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesPackageIdRouteImport } from './routes/packages.$packageId'
 
-const StoriesRoute = StoriesRouteImport.update({
-  id: '/stories',
-  path: '/stories',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -39,11 +32,6 @@ const PackagesRoute = PackagesRouteImport.update({
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExperiencesRoute = ExperiencesRouteImport.update({
-  id: '/experiences',
-  path: '/experiences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DestinationsRoute = DestinationsRouteImport.update({
@@ -82,11 +70,9 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRoute
-  '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
   '/packages/': typeof PackagesIndexRoute
 }
@@ -95,10 +81,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRoute
-  '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
   '/packages': typeof PackagesIndexRoute
 }
@@ -108,11 +92,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRoute
-  '/experiences': typeof ExperiencesRoute
   '/gallery': typeof GalleryRoute
   '/packages': typeof PackagesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/stories': typeof StoriesRoute
   '/packages/$packageId': typeof PackagesPackageIdRoute
   '/packages/': typeof PackagesIndexRoute
 }
@@ -123,11 +105,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/destinations'
-    | '/experiences'
     | '/gallery'
     | '/packages'
     | '/sitemap.xml'
-    | '/stories'
     | '/packages/$packageId'
     | '/packages/'
   fileRoutesByTo: FileRoutesByTo
@@ -136,10 +116,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/destinations'
-    | '/experiences'
     | '/gallery'
     | '/sitemap.xml'
-    | '/stories'
     | '/packages/$packageId'
     | '/packages'
   id:
@@ -148,11 +126,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/destinations'
-    | '/experiences'
     | '/gallery'
     | '/packages'
     | '/sitemap.xml'
-    | '/stories'
     | '/packages/$packageId'
     | '/packages/'
   fileRoutesById: FileRoutesById
@@ -162,22 +138,13 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRoute
-  ExperiencesRoute: typeof ExperiencesRoute
   GalleryRoute: typeof GalleryRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  StoriesRoute: typeof StoriesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/stories': {
-      id: '/stories'
-      path: '/stories'
-      fullPath: '/stories'
-      preLoaderRoute: typeof StoriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -197,13 +164,6 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/experiences': {
-      id: '/experiences'
-      path: '/experiences'
-      fullPath: '/experiences'
-      preLoaderRoute: typeof ExperiencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/destinations': {
@@ -270,11 +230,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRoute,
-  ExperiencesRoute: ExperiencesRoute,
   GalleryRoute: GalleryRoute,
   PackagesRoute: PackagesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  StoriesRoute: StoriesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
